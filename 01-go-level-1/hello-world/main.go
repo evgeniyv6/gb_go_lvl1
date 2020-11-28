@@ -5,21 +5,21 @@ import (
 	"strings"
 )
 
-type BitFlag int
+type bitFlag int
 
 const (
-	Active BitFlag = 1 << iota // 1 << 0 == 1
-	Send                       // 1 << 1 == 2
+	active bitFlag = 1 << iota // 1 << 0 == 1
+	send                       // 1 << 1 == 2
 )
 
-var flag = Active | Send
+var flag = active | send
 
-func (flag BitFlag) String() string {
+func (flag bitFlag) String() string {
 	var flags []string
-	if flag&Active == Active {
+	if flag&active == active {
 		flags = append(flags, "Active")
 	}
-	if flag&Send == Send {
+	if flag&send == send {
 		flags = append(flags, "Send")
 	}
 	if len(flags) > 0 {
@@ -30,6 +30,7 @@ func (flag BitFlag) String() string {
 
 func main() {
 	fmt.Println("Hello world!")
-	fmt.Println(BitFlag(0), Active, Send, flag)
+	fmt.Println(bitFlag(0), active, send, flag)
+	fmt.Println(bitFlag(0), active, send)
 
 }
