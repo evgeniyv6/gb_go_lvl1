@@ -63,7 +63,7 @@ func main() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
-		fa, err = strconv.ParseFloat(strings.TrimSuffix(a, "\n"), 32)
+		fa, err = strconv.ParseFloat(strings.TrimSuffix(a, "\n"), 64)
 		if err != nil {
 			fmt.Println("Вы ввели не число")
 			os.Exit(1)
@@ -74,7 +74,7 @@ func main() {
 			if err != nil {
 				fmt.Println(err)
 			}
-			fb, err = strconv.ParseFloat(strings.TrimSuffix(b, "\n"), 32)
+			fb, err = strconv.ParseFloat(strings.TrimSuffix(b, "\n"), 64)
 			if err != nil {
 				fmt.Println("Вы ввели не число")
 				os.Exit(1)
