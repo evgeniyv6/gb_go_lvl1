@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	m "math2"
 	"strings"
 )
 
@@ -33,4 +34,8 @@ func (flag bitFlag) String() string {
 func main() {
 	fmt.Println("Hello world!")
 	fmt.Println(bitFlag(0), active, send, flag)
+	xs := []float64{1, 2, 3, 4, 5}
+	// Avg comment...
+	avg := m.Avg(xs)
+	fmt.Println(avg)
 }
