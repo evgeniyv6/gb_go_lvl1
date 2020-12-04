@@ -16,8 +16,12 @@ import (
 //  	fizzbuzz: returns fizzbuzz numbers from a list with the selected capacity
 //		len: returns bytes and chars len of "Привет go!" string
 //		qsort: tell the <number>, then will be created slice with <number> capacity,
-//									then the quick sort algorithm will be applied. big O: O(sqrt (n) / log n)
+//								then the quick sort algorithm will be applied. big O: O(sqrt (n) / log n)
 //      brackets: tell the <number>, see the brackets combinations
+//      buble: tell the <number>, then will be created slice with <number> capacity,
+//     							then the bubble sort algorithm will be applied. big O(n^2) at worst
+//      insert: tell the <number>, then will be created slice with <number> capacity,
+//     							then the insert sort algorithm will be applied.big O(n^2) at worst
 func main() {
 	chooseAction := flag.String("action", "", "primes fizzbuzz len qsort brackets")
 	flag.Parse()
@@ -59,6 +63,22 @@ func main() {
 		fmt.Print("Введите число: ")
 		fmt.Scanln(&a)
 		va.PrintBrackets(a, 0, 0, "")
+	case *chooseAction == "bubble":
+		var a int
+		fmt.Print("Введите число: ")
+		fmt.Scanln(&a)
+		sor := va.GenerSlice(a)
+		fmt.Printf("Оригинальный список: %v\n", sor)
+		fmt.Printf("Сортировка пузырьком: %v\n", so.BubleSort(sor))
+		fmt.Printf("Оригинальный список не изменился: %v\n", sor)
+	case *chooseAction == "insert":
+		var a int
+		fmt.Print("Введите число: ")
+		fmt.Scanln(&a)
+		sor := va.GenerSlice(a)
+		fmt.Printf("Оригинальный список: %v\n", sor)
+		fmt.Printf("Сортировка вставками: %v\n", so.InsertationSort(sor))
+		fmt.Printf("Оригинальный список не изменился: %v\n", sor)
 	default:
 		fmt.Println("Неверно выбран флаг, возможные значения: primes fizzbuzz len qsort brackets")
 	}
