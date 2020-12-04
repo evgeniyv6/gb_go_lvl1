@@ -23,7 +23,7 @@ import (
 //      insert: tell the <number>, then will be created slice with <number> capacity,
 //     							then the insert sort algorithm will be applied.big O(n^2) at worst
 func main() {
-	chooseAction := flag.String("action", "", "primes fizzbuzz len qsort brackets")
+	chooseAction := flag.String("action", "", "primes fizzbuzz len qsort brackets bubble insert")
 	flag.Parse()
 
 	switch true {
