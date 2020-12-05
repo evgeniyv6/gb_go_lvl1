@@ -1,9 +1,9 @@
 package main
 
 import (
-	se "algorithms/search"
-	so "algorithms/sorting"
-	va "algorithms/various"
+	"algorithms/search"
+	"algorithms/sorting"
+	"algorithms/various"
 	"flag"
 	"fmt"
 	"strconv"
@@ -37,16 +37,16 @@ func main() {
 		fmt.Scanln(&a)
 
 		for i := 0; i <= a; i++ {
-			if se.IsPrime(i) {
+			if search.IsPrime(i) {
 				m["prime"] = append(m["prime"], strconv.Itoa(i))
 			}
-			m["fizzbuzz"] = append(m["fizzbuzz"], se.FizzBuzz(i))
+			m["fizzbuzz"] = append(m["fizzbuzz"], search.FizzBuzz(i))
 		}
 		fmt.Printf("Простые числа: %s\nFizzBuzz: %s", strings.Join(m["prime"], " "),
 			strings.Join(m["fizzbuzz"], " "))
 		fmt.Println()
 	case *chooseAction == "len":
-		strBytesCount, strCharsCount, strCharsUtf8Count := va.FindStrLen("Привет go!")
+		strBytesCount, strCharsCount, strCharsUtf8Count := various.FindStrLen("Привет go!")
 		fmt.Printf("'Hello go!' -> bytes: %d, chars1: %d, chars2: %d", strBytesCount,
 			strCharsCount, strCharsUtf8Count)
 		fmt.Println()
@@ -54,30 +54,30 @@ func main() {
 		var a int
 		fmt.Print("Введите число: ")
 		fmt.Scanln(&a)
-		nums := va.GenerSlice(a)
+		nums := various.GenerSlice(a)
 		fmt.Println("Исходный список: ", nums)
-		so.QuickSort(nums, 0, len(nums)-1)
+		sorting.QuickSort(nums, 0, len(nums)-1)
 		fmt.Println("Отсортированный список: ", nums)
 	case *chooseAction == "brackets":
 		var a int8
 		fmt.Print("Введите число: ")
 		fmt.Scanln(&a)
-		va.PrintBrackets(a, 0, 0, "")
+		various.PrintBrackets(a, 0, 0, "")
 	case *chooseAction == "bubble":
 		var a int
 		fmt.Print("Введите число: ")
 		fmt.Scanln(&a)
-		sor := va.GenerSlice(a)
+		sor := various.GenerSlice(a)
 		fmt.Printf("Оригинальный список: %v\n", sor)
-		fmt.Printf("Сортировка пузырьком: %v\n", so.BubleSort(sor))
+		fmt.Printf("Сортировка пузырьком: %v\n", sorting.BubleSort(sor))
 		fmt.Printf("Оригинальный список не изменился: %v\n", sor)
 	case *chooseAction == "insert":
 		var a int
 		fmt.Print("Введите число: ")
 		fmt.Scanln(&a)
-		sor := va.GenerSlice(a)
+		sor := various.GenerSlice(a)
 		fmt.Printf("Оригинальный список: %v\n", sor)
-		fmt.Printf("Сортировка вставками: %v\n", so.InsertationSort(sor))
+		fmt.Printf("Сортировка вставками: %v\n", sorting.InsertationSort(sor))
 		fmt.Printf("Оригинальный список не изменился: %v\n", sor)
 	default:
 		fmt.Println("Неверно выбран флаг, возможные значения: primes fizzbuzz len qsort brackets")
