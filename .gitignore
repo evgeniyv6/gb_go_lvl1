@@ -4,3 +4,4 @@
 .DS_Store
 01-go-level-1/**/pkg/
 01-go-level-1/**/bin/
+.idea
