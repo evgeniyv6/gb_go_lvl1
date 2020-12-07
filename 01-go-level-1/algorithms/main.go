@@ -80,6 +80,7 @@ func main() {
 		fmt.Printf("Сортировка вставками: %v\n", sorting.InsertationSort(sor))
 		fmt.Printf("Оригинальный список не изменился: %v\n", sor)
 	default:
+
 		fmt.Println("Неверно выбран флаг, возможные значения: primes fizzbuzz len qsort brackets")
 	}
 }

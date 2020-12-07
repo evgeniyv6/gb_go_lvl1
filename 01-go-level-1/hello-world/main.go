@@ -33,4 +33,5 @@ func (flag bitFlag) String() string {
 func main() {
 	fmt.Println("Hello world!")
 	fmt.Println(bitFlag(0), active, send, flag)
+
 }
