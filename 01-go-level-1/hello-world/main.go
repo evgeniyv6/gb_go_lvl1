@@ -5,6 +5,7 @@ package main
 import (
 	"fmt"
 	m "github.com/evgeniyv6/gb_go_lvl1/01-go-level-1/hello-world/math"
+	"github.com/evgeniyv6/gb_go_lvl1/01-go-level-1/hello-world/sliceutils"
 	"strings"
 )
 
@@ -36,5 +37,13 @@ func main() {
 	fmt.Println(bitFlag(0), active, send, flag)
 	xs := []float64{15, 2, 3}
 	fmt.Println(m.Avg(xs))
+
+	// slice work (int only)
+
+	xsOrig := []int{9, 8, 7, 6, 5, 4, 3, 2, 1}
+
+	fmt.Printf("Original slice %d", xsOrig)
+	sliceutils.reverseSlice(xsOrig)
+	fmt.Printf("\nReversed slice %v", xsOrig)
 
 }

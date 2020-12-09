@@ -6,3 +6,4 @@
 01-go-level-1/**/bin/
 .idea
 go.mod
+go.sum
