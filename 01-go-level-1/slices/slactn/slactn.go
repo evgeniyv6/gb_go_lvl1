@@ -15,7 +15,7 @@ func DelDublicates(s []int) []int {
 	newS := []int{}
 	for _, el := range s {
 		if i, v := keys[el]; !v {
-			fmt.Printf("i = %v", i)
+			fmt.Printf("i = %v, v=%v", i, v)
 			keys[el] = true
 			newS = append(newS, el)
 		}
