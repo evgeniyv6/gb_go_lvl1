@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/evgeniyv6/gb_go_lvl1/01-go-level-1/slices/slactn"
+	"github.com/evgeniyv6/go_modules/tryMod/evgmod"
 )
 
 func main() {
@@ -12,5 +13,7 @@ func main() {
 	slactn.ReverseSlice(xsOrign)
 	fmt.Printf("\nReversed slice - %d", xsOrign)
 	fmt.Printf("\nDelete dublicates %d", slactn.DelDublicates(xsOrign))
+	fmt.Println()
+	evgmod.Hi()
 
 }
