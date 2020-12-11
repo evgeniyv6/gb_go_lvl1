@@ -18,6 +18,14 @@ func chkElem(opers []string, elem string) bool {
 	return false
 }
 
+func addLog(f func(o string, a float64, b ...float64) float64) func(o string, a float64, b ...float64) float64 {
+	return func(o string, a float64, b ...float64) float64 {
+		fmt.Print("Пучатаем результат: ")
+		res := f(o, a, b...)
+		return res
+	}
+}
+
 func simpleCalculator(op string, a float64, b ...float64) float64 {
 	switch op {
 	case "+":
@@ -79,9 +87,11 @@ func main() {
 				fmt.Println("Вы ввели не число")
 				os.Exit(1)
 			}
-			fmt.Printf("%.2f", simpleCalculator(op, fa, fb))
+			xCalc := addLog(simpleCalculator)
+			fmt.Printf("%.2f\n", xCalc(op, fa, fb))
 		} else {
-			fmt.Printf("%.2f", simpleCalculator(op, fa))
+			xCalc := addLog(simpleCalculator)
+			fmt.Printf("%.2f\n", xCalc(op, fa))
 		}
 	} else {
 		fmt.Println("Неверная операция ")
