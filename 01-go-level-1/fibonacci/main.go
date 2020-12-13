@@ -45,7 +45,7 @@ func main() {
 			switch {
 			case randChoiceNum == 0:
 				nn := fiblib.FibonacciMapUse(intNum)
-				fmt.Print("Fibonacci numbers from algorithm (countdown starts from 0): ")
+				fmt.Print("Fibonacci numbers from algorithm (countdown index starts from 0): ")
 				for _, k := range intMap(nn).mapSorter() {
 					fmt.Printf("%d ", nn[k])
 				}
@@ -65,9 +65,17 @@ func main() {
 				fmt.Printf("\nFibonacci number for %d is: %d", intNum, res)
 				fmt.Println()
 			case randChoiceNum == 2:
-				fib := fiblib.FibonacciGoldenRatio(uint64(intNum))
-				fmt.Printf("Fibonacci number for %d is: %v", intNum, fib)
-				fmt.Println()
+				var fib float64
+				if intNum == 1 {
+					fmt.Println("--== Fibonacci golden ratio ==--")
+					fmt.Printf("Fibonacci number for %d is: %v", intNum, 0)
+					fmt.Println()
+				} else {
+					fib = fiblib.FibonacciGoldenRatio(int64(intNum - 1))
+					fmt.Printf("Fibonacci number for %d is: %v", intNum, fib)
+					fmt.Println()
+				}
+
 			default:
 				fmt.Println(helper)
 			}
