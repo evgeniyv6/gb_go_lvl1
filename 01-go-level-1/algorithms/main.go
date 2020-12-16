@@ -27,6 +27,7 @@ func main() {
 	flag.Parse()
 
 	switch true {
+	// пример разыменовывания указателя *chooseAction при использовании Command-Line Flags
 	case *chooseAction == "primes" || *chooseAction == "fizzbuzz":
 		var a int
 		m := map[string][]string{
@@ -34,13 +35,16 @@ func main() {
 			"fizzbuzz": {},
 		}
 		fmt.Print("Введите число: ")
+		// теперь указатель
 		fmt.Scanln(&a)
 
 		for i := 0; i <= a; i++ {
-			if search.IsPrime(i) {
+			// теперь указатель
+			if search.IsPrime(&i) {
 				m["prime"] = append(m["prime"], strconv.Itoa(i))
 			}
-			m["fizzbuzz"] = append(m["fizzbuzz"], search.FizzBuzz(i))
+			// для FizzBuzz переделал на входной параметр - указатель
+			m["fizzbuzz"] = append(m["fizzbuzz"], search.FizzBuzz(&i))
 		}
 		fmt.Printf("Простые числа: %s\nFizzBuzz: %s", strings.Join(m["prime"], " "),
 			strings.Join(m["fizzbuzz"], " "))
