@@ -10,12 +10,17 @@ import (
 )
 
 func chkElem(opers []string, elem string) bool {
+	fmt.Println(opers)
 	for _, op := range opers {
 		if op == elem {
 			return true
 		}
 	}
 	return false
+}
+
+func sliceModify(sl []string) {
+	sl[0] = "changed_command"
 }
 
 func simpleCalculator(op string, a float64, b ...float64) float64 {
@@ -47,7 +52,9 @@ func main() {
 
 	var fa, fb float64
 	oneOp := []string{"sqrt", "log", "exp"}
-	twoOp := []string{"+", "-", "*", "/", "pow"}
+	twoOp := []string{"+", "-", "*", "/", "pow"} // slice со списком операций. Согласно стрктуре типа данных - работа с указателями
+	sliceModify(twoOp)                           // функция изменяет первую команду, хотя в ней фактически нет return, но т.к. это слайс -
+	fmt.Println(twoOp)                           // ("+", "-", "*", "/", "pow") -> ("changed_command", "-", "*", "/", "pow")
 
 	fmt.Print("Введите арифметическую операцию (+, -, *, /, pow) для 2х чисел, (sqrt, log, exp) для одного: ")
 	op, err := reader.ReadString('\n')
