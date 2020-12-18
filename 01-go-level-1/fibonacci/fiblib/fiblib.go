@@ -38,13 +38,21 @@ func FibonacciAnonymousFunc() func() int {
 // Thanks wiki (Binet's Formula):
 // 		phi = (1+sqrt(5))/2 =~ 1.618033988749895
 //      formula: n = (pow(phi,n) - pow((1 - phi), n)) / sqrt(5)
-func FibonacciGoldenRatio(n int64) float64 {
+func FibonacciGoldenRatio(n int) int64 {
 	// const phi = 1.618033988749895
 	fmt.Println("--== Fibonacci golden ratio ==--")
 	if n < 0 {
 		return 0
 	}
+	var nf = float64(n)
 	phi := (1 + math.Pow(5, .5)) / 2.0
-	return math.Round((math.Pow(phi, float64(n)) - math.Pow((1-phi), float64(n))) / math.Sqrt(float64(5)))
+	return int64(math.Round((math.Pow(phi, nf) - math.Pow((1-phi), nf)) / math.Sqrt(5.0)))
+}
 
+// FibonacciRecur descr
+func FibonacciRecur(n int) int {
+	if n <= 1 {
+		return n
+	}
+	return FibonacciRecur(n-1) + FibonacciRecur(n-2)
 }

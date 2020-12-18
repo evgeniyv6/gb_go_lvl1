@@ -41,7 +41,7 @@ func main() {
 			fmt.Printf("num %v\n", intNum)
 			fmt.Print("> ")
 		} else {
-			randChoiceNum := rand.Intn(3)
+			randChoiceNum := rand.Intn(4)
 			switch {
 			case randChoiceNum == 0:
 				nn := fiblib.FibonacciMapUse(intNum)
@@ -65,14 +65,24 @@ func main() {
 				fmt.Printf("\nFibonacci number for %d is: %d", intNum, res)
 				fmt.Println()
 			case randChoiceNum == 2:
-				var fib float64
+				var fib int64
 				if intNum == 1 {
 					fmt.Println("--== Fibonacci golden ratio ==--")
 					fmt.Printf("Fibonacci number for %d is: %v", intNum, 0)
 					fmt.Println()
 				} else {
-					fib = fiblib.FibonacciGoldenRatio(int64(intNum - 1))
+					fib = fiblib.FibonacciGoldenRatio(intNum - 1)
 					fmt.Printf("Fibonacci number for %d is: %v", intNum, fib)
+					fmt.Println()
+				}
+			case randChoiceNum == 3:
+				if intNum == 1 {
+					fmt.Println("--== Fibonacci recursion ==--")
+					fmt.Printf("Fibonacci number for %d is: %v", intNum, 0)
+					fmt.Println()
+				} else {
+					fmt.Println("--== Fibonacci recursion ==--")
+					fmt.Printf("Fibonacci number for %d is: %v", intNum, fiblib.FibonacciRecur((intNum)-1))
 					fmt.Println()
 				}
 

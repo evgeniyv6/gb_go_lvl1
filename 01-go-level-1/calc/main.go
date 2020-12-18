@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+type calcLog func(string, float64, ...float64) float64
+
 func chkElem(opers []string, elem string) bool {
 	for _, op := range opers {
 		if op == elem {
@@ -22,6 +24,16 @@ func addLog(f func(o string, a float64, b ...float64) float64) func(o string, a 
 	return func(o string, a float64, b ...float64) float64 {
 		fmt.Print("Пучатаем результат: ")
 		res := f(o, a, b...)
+		return res
+	}
+}
+
+// decorator with type calcLog func(string, float64, ...float64) float64
+func addLog2(f calcLog) calcLog {
+	return func(o string, a float64, b ...float64) float64 {
+		fmt.Println("Пучатаем результат... ")
+		res := f(o, a, b...)
+		fmt.Println("Результат: ")
 		return res
 	}
 }
@@ -87,7 +99,7 @@ func main() {
 				fmt.Println("Вы ввели не число")
 				os.Exit(1)
 			}
-			xCalc := addLog(simpleCalculator)
+			xCalc := addLog2(simpleCalculator)
 			fmt.Printf("%.2f\n", xCalc(op, fa, fb))
 		} else {
 			xCalc := addLog(simpleCalculator)
