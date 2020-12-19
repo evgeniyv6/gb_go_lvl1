@@ -63,6 +63,7 @@ func simpleCalculator(op string, a float64, b ...float64) float64 {
 }
 
 func main() {
+	// interface example 3: func NewReader(rd io.Reader) *Reader -> type Reader interface
 	reader := bufio.NewReader(os.Stdin)
 
 	var fa, fb float64
