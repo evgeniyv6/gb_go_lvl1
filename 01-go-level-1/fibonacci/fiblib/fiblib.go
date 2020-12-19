@@ -6,29 +6,29 @@ import (
 )
 
 // FibonacciMapUse descr (bif o: O(n))
-func FibonacciMapUse(n int) (fibMap map[int]int) {
-	fmt.Println("--== Fibonacci map using ==--")
-	fibMap = make(map[int]int)
-	if n < 0 {
-		return
-	}
-	var num int
-	for i := 0; i <= n; i++ {
-		if i <= 1 {
-			num = i
-		} else {
+func FibonacciMapUse(n uint64) uint64 {
+	fmt.Print("--== Fibonacci map using ==--")
+	fibMap := make(map[uint64]uint64)
+	var num, i uint64
+	for ; i <= n; i++ {
+		switch i {
+		case 0:
+			num = 0
+		case 1:
+			num = 1
+		default:
 			num = fibMap[i-1] + fibMap[i-2]
 		}
 		fibMap[i] = num
 	}
-	return
+	return fibMap[n]
 }
 
 // FibonacciAnonymousFunc descr (bif o: O(n))
-func FibonacciAnonymousFunc() func() int {
-	fmt.Println("--== Fibonacci anonymous func using ==--")
-	n1, n2 := 0, 1
-	return func() int {
+func FibonacciAnonymousFunc() func() uint64 {
+	fmt.Print("--== Fibonacci anonymous func using ==--")
+	var n1, n2 uint64 = 0, 1
+	return func() uint64 {
 		n1, n2 = n2, n1+n2
 		return n1
 	}
@@ -38,7 +38,7 @@ func FibonacciAnonymousFunc() func() int {
 // Thanks wiki (Binet's Formula):
 // 		phi = (1+sqrt(5))/2 =~ 1.618033988749895
 //      formula: n = (pow(phi,n) - pow((1 - phi), n)) / sqrt(5)
-func FibonacciGoldenRatio(n int) int64 {
+func FibonacciGoldenRatio(n uint64) uint64 {
 	// const phi = 1.618033988749895
 	fmt.Println("--== Fibonacci golden ratio ==--")
 	if n < 0 {
@@ -46,13 +46,16 @@ func FibonacciGoldenRatio(n int) int64 {
 	}
 	var nf = float64(n)
 	phi := (1 + math.Pow(5, .5)) / 2.0
-	return int64(math.Round((math.Pow(phi, nf) - math.Pow((1-phi), nf)) / math.Sqrt(5.0)))
+	return uint64(math.Round((math.Pow(phi, nf) - math.Pow((1-phi), nf)) / math.Sqrt(5.0)))
 }
 
 // FibonacciRecur descr
-func FibonacciRecur(n int) int {
-	if n <= 1 {
-		return n
+func FibonacciRecur(n uint64) uint64 {
+	switch n {
+	case 0:
+		return 0
+	case 1:
+		return 1
 	}
 	return FibonacciRecur(n-1) + FibonacciRecur(n-2)
 }
