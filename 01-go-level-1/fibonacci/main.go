@@ -32,9 +32,11 @@ func main() {
 	fmt.Print("Введите число > ")
 	for scanner.Scan() {
 		num = scanner.Text()
+		// error handling example
 		if scanner.Err() != nil {
 			fmt.Println("Error while stdin read.")
 		}
+		// error handling example
 		intNum, err := strconv.ParseUint(num, 10, 32) //.Atoi(num)
 		if err != nil || intNum < 0 {
 			fmt.Println("Cannot convert to int or number is negative.")

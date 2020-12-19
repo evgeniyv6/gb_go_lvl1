@@ -34,7 +34,11 @@ func main() {
 			"fizzbuzz": {},
 		}
 		fmt.Print("Введите число: ")
-		fmt.Scanln(&a)
+		// interface example 1: func Scanln(a ...interface{}) (n int, err error)
+		if _, err := fmt.Scanln(&a); err != nil {
+			// interface example 2: Println(a ...interface{}) (n int, err error)
+			fmt.Println("Error: ", err)
+		}
 
 		for i := 0; i <= a; i++ {
 			if search.IsPrime(i) {
@@ -53,7 +57,9 @@ func main() {
 	case *chooseAction == "qsort":
 		var a int
 		fmt.Print("Введите число: ")
-		fmt.Scanln(&a)
+		if _, err := fmt.Scanln(&a); err != nil {
+			fmt.Println("Error: ", err)
+		}
 		nums := various.GenerSlice(a)
 		fmt.Println("Исходный список: ", nums)
 		sorting.QuickSort(nums, 0, len(nums)-1)
@@ -61,12 +67,16 @@ func main() {
 	case *chooseAction == "brackets":
 		var a int8
 		fmt.Print("Введите число: ")
-		fmt.Scanln(&a)
+		if _, err := fmt.Scanln(&a); err != nil {
+			fmt.Println("Error: ", err)
+		}
 		various.PrintBrackets(a, 0, 0, "")
 	case *chooseAction == "bubble":
 		var a int
 		fmt.Print("Введите число: ")
-		fmt.Scanln(&a)
+		if _, err := fmt.Scanln(&a); err != nil {
+			fmt.Println("Error: ", err)
+		}
 		sor := various.GenerSlice(a)
 		fmt.Printf("Оригинальный список: %v\n", sor)
 		fmt.Printf("Сортировка пузырьком: %v\n", sorting.BubleSort(sor))
@@ -74,7 +84,9 @@ func main() {
 	case *chooseAction == "insert":
 		var a int
 		fmt.Print("Введите число: ")
-		fmt.Scanln(&a)
+		if _, err := fmt.Scanln(&a); err != nil {
+			fmt.Println("Error: ", err)
+		}
 		sor := various.GenerSlice(a)
 		fmt.Printf("Оригинальный список: %v\n", sor)
 		fmt.Printf("Сортировка вставками: %v\n", sorting.InsertationSort(sor))
