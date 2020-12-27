@@ -16,7 +16,7 @@ scenarios:
     retrieve-resources: false
     requests:
       - http://example.com/
-      - http://example2.org/
+      - bad_url//example2.org/
 
 reporting:
   - module: final-stats
