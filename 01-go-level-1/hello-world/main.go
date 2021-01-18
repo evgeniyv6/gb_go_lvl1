@@ -39,7 +39,7 @@ func main() {
 
 
 	// try 14 exercise
-	fmt.Println("Automorphic number:")
+	fmt.Println("Automorphic numbers:")
 	for i:=1; i< 2890625; i++ {
 		if c_algos.IsAutomorph(i) {
 			fmt.Printf("%d\t", i)
@@ -49,7 +49,7 @@ func main() {
 	fmt.Println()
 
 	// try 13 exercise
-	fmt.Println("Random numbers")
+	fmt.Println("Random numbers:")
 	fmt.Printf("Standart rand func: %d\n", c_algos.StandartRand(1, 100))
 	fmt.Printf("Lehmer rand func: %d\n",c_algos.KnuthRand(1, 100,4,5))
 
