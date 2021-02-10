@@ -1,13 +1,11 @@
 package fiblib
 
 import (
-	"fmt"
 	"math"
 )
 
 // FibonacciMapUse descr (bif o: O(n))
 func FibonacciMapUse(n uint64) uint64 {
-	fmt.Print("--== Fibonacci map using ==--")
 	fibMap := make(map[uint64]uint64)
 	var num, i uint64
 	for ; i <= n; i++ {
@@ -26,7 +24,6 @@ func FibonacciMapUse(n uint64) uint64 {
 
 // FibonacciAnonymousFunc descr (bif o: O(n))
 func FibonacciAnonymousFunc() func() uint64 {
-	fmt.Print("--== Fibonacci anonymous func using ==--")
 	var n1, n2 uint64 = 0, 1
 	return func() uint64 {
 		n1, n2 = n2, n1+n2
@@ -40,7 +37,6 @@ func FibonacciAnonymousFunc() func() uint64 {
 //      formula: n = (pow(phi,n) - pow((1 - phi), n)) / sqrt(5)
 func FibonacciGoldenRatio(n uint64) uint64 {
 	// const phi = 1.618033988749895
-	fmt.Println("--== Fibonacci golden ratio ==--")
 	if n < 0 {
 		return 0
 	}
