@@ -24,7 +24,7 @@ func FindStrLen(s string) (int, int, int) {
 	return len(s), len([]rune(s)), utf8.RuneCountInString(s)
 }
 
-// GenerSlice generate slice
+// GenerSlice generates slice
 func GenerSlice(num int) []int {
 	randNum := make([]int, num)
 	for i := 0; i < num; i++ {
